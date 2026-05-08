@@ -1,147 +1,36 @@
-# 森林生存 (Forest Survival)
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-一款基于 Web 的 2D 像素风生存冒险游戏。你被遗弃在一片广袤的森林中，必须依靠收集资源、建造营火、管理生存指标来活过 10 个越来越艰难的日夜。
+## Getting Started
 
----
+First, run the development server:
 
-## 游戏玩法
-
-### 核心目标
-在危机四伏的森林中**生存 10 天**。每一天的难度都会递增——资源更稀缺、黑夜更长、环境更严酷。
-
-### 生存指标
-| 指标 | 说明 | 危险阈值 |
-|------|------|----------|
-| HP (生命值) | 归零则死亡 | 时刻关注 |
-| 饥饿值 | 持续下降，需吃苹果恢复 | 过低会持续掉血 |
-| 口渴值 | 持续下降，需喝水恢复 | 过低会持续掉血 |
-
-### 资源收集
-- **木材** — 靠近树木按空格/采集键砍伐获得，用于建造营火
-- **苹果** — 靠近苹果树采集获得，恢复饥饿值
-- **水** — 靠近水池采集获得，恢复口渴值
-- **营火** — 消耗 3 木材建造，夜间提供温暖
-
-### 昼夜循环
-- **白天** — 相对安全，积极收集资源
-- **黑夜** — 温度骤降，没有营火会持续掉血
-- 随着天数增加，黑夜占比逐渐提高（第1天 30% → 第10天 55%）
-
-### 难度递增
-每一天的配置都会变化：
-- 饥饿/口渴消耗速度加快
-- 树木和水池的刷新时间变长、数量减少
-- 夜间寒冷伤害增加
-- 第6天起最大饥饿/口渴上限降低至 80
-
----
-
-## 操作方式
-
-### PC (键盘)
-| 按键 | 功能 |
-|------|------|
-| `W` `A` `S` `D` / 方向键 | 移动 |
-| `空格` | 采集资源 / 砍伐树木 / 建造营火 |
-| `1` | 吃苹果（恢复饥饿） |
-| `2` | 喝水（恢复口渴） |
-| `3` | 建造营火（消耗 3 木材） |
-
-### 移动端
-- **虚拟摇杆** — 屏幕左下角拖动控制移动
-- **采集按钮** — 屏幕右下角点击采集/建造
-
----
-
-## 技术栈
-
-| 技术 | 版本 | 用途 |
-|------|------|------|
-| [React](https://react.dev/) | 19.2 | UI 框架 |
-| [TypeScript](https://www.typescriptlang.org/) | 5.9 | 类型安全 |
-| [Vite](https://vitejs.dev/) | 7.2 | 构建工具 & 开发服务器 |
-| [Tailwind CSS](https://tailwindcss.com/) | 3.4 | 样式系统 |
-| [shadcn/ui](https://ui.shadcn.com/) | - | UI 组件库 |
-| HTML5 Canvas | - | 游戏画面渲染 |
-
----
-
-## 项目结构
-
-```
-src/
-├── game/
-│   ├── GameCanvas.tsx    # 游戏主画布组件
-│   ├── engine.ts         # 游戏逻辑引擎（状态更新、碰撞检测、昼夜循环）
-│   ├── renderer.ts       # Canvas 渲染器（画面绘制）
-│   ├── config.ts         # 游戏配置（地图尺寸、10天难度配置、颜色）
-│   ├── types.ts          # TypeScript 类型定义
-│   └── utils.ts          # 工具函数（实体生成、粒子效果等）
-├── components/ui/        # shadcn/ui 组件库
-├── hooks/                # 自定义 React Hooks
-├── pages/                # 页面组件
-├── App.tsx               # 应用根组件
-├── main.tsx              # 入口文件
-└── index.css             # 全局样式
-public/                   # 静态资源（玩家、树木、水池等像素贴图）
-```
-
----
-
-## 快速开始
-
-### 环境要求
-- [Node.js](https://nodejs.org/) 20+
-
-### 安装依赖
-```bash
-npm install
-```
-
-### 启动开发服务器
 ```bash
 npm run dev
-```
-默认运行在 http://localhost:3000
-
-### 构建生产版本
-```bash
-npm run build
-```
-输出至 `dist/` 目录
-
-### 预览生产构建
-```bash
-npm run preview
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 游戏截图
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-> 游戏采用俯视角像素风格，包含动态昼夜光照、粒子特效、浮动文字提示等视觉效果。
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 开发状态
+To learn more about Next.js, take a look at the following resources:
 
-- [x] 核心生存系统（饥饿/口渴/HP）
-- [x] 资源收集与建造系统
-- [x] 昼夜循环与难度递增
-- [x] 10 天渐进式挑战
-- [x] PC 键盘操作
-- [x] 移动端虚拟摇杆适配
-- [x] 粒子特效与浮动文字
-- [ ] 音效系统
-- [ ] 存档功能
-- [ ] 更多生物/敌人
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## License
+## Deploy on Vercel
 
-MIT
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-> built with React + Vite + TypeScript + Tailwind CSS
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
