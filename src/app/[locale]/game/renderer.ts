@@ -470,8 +470,11 @@ export function renderMenuBackground(
 }
 
 // 获取时间文本
-export function getTimeText(state: GameState): string {
-  return state.timeOfDay === 'day' ? '白天' : '黑夜';
+export function getTimeText(state: GameState, locale: string = 'zh'): string {
+  if (state.timeOfDay === 'day') {
+    return locale === 'zh' ? '白天' : 'Daytime';
+  }
+  return locale === 'zh' ? '黑夜' : 'Night';
 }
 
 // 获取时间颜色

@@ -3,8 +3,10 @@ import type { GameState, GameAssets, InputState } from './types';
 import { createInitialState, updateGame, consumeItem, collectWater, placeCampfire, startGame, continueToNextDay } from './engine';
 import { renderGame, renderMenuBackground, getTimeText, getTimeColor } from './renderer';
 import { COLORS } from './config';
+import { gameText } from '@/i18n/game';
 
-export default function GameCanvas() {
+export default function GameCanvas({ locale }: { locale: string }) {
+  const t = gameText[locale as 'zh' | 'en'];
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gameStateRef = useRef<GameState>(createInitialState());
   const inputRef = useRef<InputState>({
@@ -25,7 +27,7 @@ export default function GameCanvas() {
     maxThirst: 100,
     inventory: { wood: 0, apple: 0, water: 0, fire: 0 },
     day: 1,
-    timeText: '白天',
+    timeText: locale === 'zh' ? '白天' : 'Daytime',
     timeColor: '#F8B500',
     nearTree: false,
     score: 0,
@@ -171,7 +173,7 @@ export default function GameCanvas() {
           maxThirst: state.player.maxThirst,
           inventory: { ...state.player.inventory },
           day: state.currentDay,
-          timeText: getTimeText(state),
+          timeText: getTimeText(state, locale),
           timeColor: getTimeColor(state),
           nearTree: state.nearTree,
           score: state.score,
@@ -259,10 +261,10 @@ export default function GameCanvas() {
   // 获取死亡原因文本
   const getDeathCauseText = (cause: string): string => {
     switch (cause) {
-      case 'hunger': return '饥饿';
-      case 'thirst': return '口渴';
-      case 'cold': return '寒冷';
-      default: return '未知原因';
+      case 'hunger': return t.deathHunger;
+      case 'thirst': return t.deathThirst;
+      case 'cold': return t.deathCold;
+      default: return t.deathUnknown;
     }
   };
 
@@ -284,20 +286,20 @@ export default function GameCanvas() {
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 drop-shadow-lg">
-              森林生存
+              {t.menuTitle}
             </h1>
             <p className="text-lg md:text-xl text-[#DFE6E9] mb-8 drop-shadow">
-              木头可用版
+              {t.menuSubtitle}
             </p>
             <button
               onClick={handleStartGame}
               className="px-10 py-4 bg-[#F8B500] hover:bg-[#FFD93D] text-white font-bold text-xl rounded-full shadow-lg transition-transform active:scale-95"
             >
-              开始游戏
+              {t.startGame}
             </button>
             <div className="mt-6 text-sm text-[#DFE6E9] space-y-1">
-              <p>PC: WASD/方向键移动，空格/E收集</p>
-              <p>手机: 虚拟摇杆移动，点击收集</p>
+              <p>{t.menuHintPC}</p>
+              <p>{t.menuHintMobile}</p>
             </div>
           </div>
         </div>
@@ -311,7 +313,7 @@ export default function GameCanvas() {
             <div className="flex items-start justify-between max-w-lg mx-auto">
               {/* 左侧：天数和时间 */}
               <div className="bg-black/50 rounded-xl px-3 py-2 backdrop-blur-sm">
-                <div className="text-white font-bold text-sm">第 {stats.day} 天</div>
+                <div className="text-white font-bold text-sm">{t.day.replace('{day}', String(stats.day))}</div>
                 <div className="text-xs font-medium" style={{ color: stats.timeColor }}>
                   {stats.timeText}
                 </div>
@@ -321,7 +323,7 @@ export default function GameCanvas() {
               <div className="flex-1 mx-3 space-y-1.5 bg-black/50 rounded-xl px-3 py-2 backdrop-blur-sm">
                 {/* 生命值 */}
                 <div className="flex items-center gap-2">
-                  <span className="text-white text-xs w-8">生命</span>
+                  <span className="text-white text-xs w-8">{t.hp}</span>
                   <div className="flex-1 h-2.5 bg-gray-700 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-300"
@@ -335,7 +337,7 @@ export default function GameCanvas() {
                 </div>
                 {/* 饥饿值 */}
                 <div className="flex items-center gap-2">
-                  <span className="text-white text-xs w-8">饱腹</span>
+                  <span className="text-white text-xs w-8">{t.hunger}</span>
                   <div className="flex-1 h-2.5 bg-gray-700 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-300"
@@ -349,7 +351,7 @@ export default function GameCanvas() {
                 </div>
                 {/* 口渴值 */}
                 <div className="flex items-center gap-2">
-                  <span className="text-white text-xs w-8">水分</span>
+                  <span className="text-white text-xs w-8">{t.thirst}</span>
                   <div className="flex-1 h-2.5 bg-gray-700 rounded-full overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all duration-300"
@@ -405,7 +407,7 @@ export default function GameCanvas() {
                 <div className="w-10 h-10 rounded-full bg-blue-500/80 flex items-center justify-center text-lg">
                   💧
                 </div>
-                <span className="text-white text-xs font-bold mt-0.5">补水</span>
+                <span className="text-white text-xs font-bold mt-0.5">{t.refill}</span>
               </button>
             </div>
           </div>
@@ -445,7 +447,7 @@ export default function GameCanvas() {
                     : 'bg-gray-500'
                 }`}
               >
-                收集
+                {t.collect}
               </button>
             </div>
           </div>
@@ -453,7 +455,7 @@ export default function GameCanvas() {
           {/* PC端操作提示 */}
           {!isMobile && (
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 text-white/40 text-xs z-10">
-              WASD移动 | 空格收集 | 点击物品使用
+              {t.pcHint}
             </div>
           )}
         </>
@@ -464,10 +466,10 @@ export default function GameCanvas() {
         <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/70">
           <div className="bg-[#2D3436] rounded-2xl p-8 text-center max-w-sm mx-4 shadow-2xl">
             <h2 className="text-2xl font-bold text-[#1DD1A1] mb-4">
-              成功度过第 {stats.totalDaysSurvived} 天！
+              {t.daySurvived.replace('{day}', String(stats.totalDaysSurvived))}
             </h2>
             <div className="text-[#DFE6E9] mb-2">
-              当前资源：
+              {t.resources}
             </div>
             <div className="flex justify-center gap-4 mb-6 text-white">
               <div>🪵 {stats.inventory.wood}</div>
@@ -475,13 +477,13 @@ export default function GameCanvas() {
               <div>💧 {stats.inventory.water}</div>
             </div>
             <div className="text-sm text-[#DFE6E9] mb-6">
-              第 {stats.day} 天即将开始...难度提升！
+              {t.nextDay.replace('{day}', String(stats.day))}
             </div>
             <button
               onClick={handleContinue}
               className="px-8 py-3 bg-[#F8B500] hover:bg-[#FFD93D] text-white font-bold rounded-full transition-transform active:scale-95"
             >
-              继续
+              {t.continue}
             </button>
           </div>
         </div>
@@ -492,30 +494,30 @@ export default function GameCanvas() {
         <div className="absolute inset-0 flex items-center justify-center z-20 bg-black/70">
           <div className="bg-[#2D3436] rounded-2xl p-8 text-center max-w-sm mx-4 shadow-2xl">
             <h2 className="text-3xl font-bold text-[#FF4757] mb-2">
-              游戏结束
+              {t.gameOver}
             </h2>
             <div className="text-[#DFE6E9] mb-4">
-              死亡原因：<span className="text-white font-bold">{getDeathCauseText(stats.deathCause)}</span>
+              {t.deathCause}<span className="text-white font-bold">{getDeathCauseText(stats.deathCause)}</span>
             </div>
             <div className="text-4xl font-bold text-white mb-2">
-              {stats.totalDaysSurvived} 天
+              {stats.totalDaysSurvived}
             </div>
             <div className="text-sm text-[#DFE6E9] mb-6">
-              存活天数
+              {t.daysSurvived}
             </div>
             <div className="text-sm text-[#DFE6E9] mb-6">
-              得分：{stats.score}
+              {t.score}{stats.score}
             </div>
             {stats.totalDaysSurvived >= 10 && (
               <div className="text-lg text-[#F8B500] font-bold mb-4">
-                恭喜通关！
+                {t.congrats}
               </div>
             )}
             <button
               onClick={handleRestart}
               className="px-8 py-3 bg-[#1DD1A1] hover:bg-[#2EE8B5] text-white font-bold rounded-full transition-transform active:scale-95"
             >
-              重新开始
+              {t.restart}
             </button>
           </div>
         </div>

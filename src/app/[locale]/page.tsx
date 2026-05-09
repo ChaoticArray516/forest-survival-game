@@ -170,7 +170,7 @@ export default async function Home({ params }: HomeProps) {
 
       {/* Game Canvas */}
       <section className="px-4 pb-8">
-        <GameClient />
+        <GameClient locale={locale} />
       </section>
 
       {/* Game Introduction */}
