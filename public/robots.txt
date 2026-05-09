@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://forest-survival-game.vercel.app/sitemap.xml
+Sitemap: https://forestsurvival.org/sitemap.xml

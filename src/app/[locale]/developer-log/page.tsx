@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "了解森林生存游戏的开发历程：从创意到上线的完整故事。技术选型、架构设计、10天难度曲线的设计理念，以及独立开发者的第一手经验。"
       : "Behind the scenes of Forest Survival: the full story from concept to launch. Tech stack, architecture design, 10-day difficulty curve, and firsthand indie dev experience.",
     alternates: {
-      canonical: `https://forest-survival-game.vercel.app/${locale}/developer-log`,
+      canonical: `https://forestsurvival.org/${locale}/developer-log`,
       languages: {
-        "zh-CN": "https://forest-survival-game.vercel.app/zh/developer-log",
-        "en-US": "https://forest-survival-game.vercel.app/en/developer-log",
-        "x-default": "https://forest-survival-game.vercel.app/en/developer-log",
+        "zh-CN": "https://forestsurvival.org/zh/developer-log",
+        "en-US": "https://forestsurvival.org/en/developer-log",
+        "x-default": "https://forestsurvival.org/en/developer-log",
       },
     },
   };

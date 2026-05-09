@@ -15,11 +15,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "森林生存游戏的隐私政策。了解我们如何收集、使用和保护您的数据。"
       : "Forest Survival Game privacy policy. Learn how we collect, use, and protect your data.",
     alternates: {
-      canonical: `https://forest-survival-game.vercel.app/${locale}/privacy`,
+      canonical: `https://forestsurvival.org/${locale}/privacy`,
       languages: {
-        "zh-CN": "https://forest-survival-game.vercel.app/zh/privacy",
-        "en-US": "https://forest-survival-game.vercel.app/en/privacy",
-        "x-default": "https://forest-survival-game.vercel.app/en/privacy",
+        "zh-CN": "https://forestsurvival.org/zh/privacy",
+        "en-US": "https://forestsurvival.org/en/privacy",
+        "x-default": "https://forestsurvival.org/en/privacy",
       },
     },
   };

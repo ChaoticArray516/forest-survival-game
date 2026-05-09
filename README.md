@@ -9,7 +9,7 @@
 
 > **A free browser-based 2D pixel-art survival game. Gather wood, build campfires, manage hunger and thirst — survive 10 days. Bilingual (Chinese / English).**
 
-线上地址 / Live: https://forest-survival-game.vercel.app
+线上地址 / Live: https://forestsurvival.org
 
 ---
 

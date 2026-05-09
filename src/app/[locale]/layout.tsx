@@ -38,13 +38,13 @@ const metadataByLocale: Record<Locale, Metadata> = {
     openGraph: {
       title: "森林生存：免费在线浏览器生存游戏",
       description: "在广袤森林中挑战10天极限生存！免费HTML5网页游戏，无需下载。",
-      url: "https://forest-survival-game.vercel.app/zh",
+      url: "https://forestsurvival.org/zh",
       siteName: "森林生存",
       locale: "zh_CN",
       type: "website",
       images: [
         {
-          url: "https://forest-survival-game.vercel.app/og-image.png",
+          url: "https://forestsurvival.org/og-image.png",
           width: 1200,
           height: 630,
           alt: "森林生存游戏截图 - 像素风森林生存挑战",
@@ -55,7 +55,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
       card: "summary_large_image",
       title: "森林生存：免费在线浏览器生存游戏",
       description: "在广袤森林中挑战10天极限生存！免费HTML5网页游戏。",
-      images: ["https://forest-survival-game.vercel.app/og-image.png"],
+      images: ["https://forestsurvival.org/og-image.png"],
       creator: "@ChaoticArray516",
     },
   },
@@ -81,13 +81,13 @@ const metadataByLocale: Record<Locale, Metadata> = {
       title: "Forest Survival Game - Play Free Online, No Download",
       description:
         "Survive 10 days in a dangerous forest! Collect wood, build campfires, manage hunger & thirst. Free browser game — no download.",
-      url: "https://forest-survival-game.vercel.app/en",
+      url: "https://forestsurvival.org/en",
       siteName: "Forest Survival",
       locale: "en_US",
       type: "website",
       images: [
         {
-          url: "https://forest-survival-game.vercel.app/og-image.png",
+          url: "https://forestsurvival.org/og-image.png",
           width: 1200,
           height: 630,
           alt: "Forest Survival Game Screenshot - Pixel Art Forest Challenge",
@@ -98,7 +98,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
       card: "summary_large_image",
       title: "Forest Survival Game - Play Free Online, No Download",
       description: "Survive 10 days in a dangerous forest! Free browser survival game.",
-      images: ["https://forest-survival-game.vercel.app/og-image.png"],
+      images: ["https://forestsurvival.org/og-image.png"],
       creator: "@ChaoticArray516",
     },
   },
@@ -116,11 +116,11 @@ export async function generateMetadata({
   return {
     ...baseMeta,
     alternates: {
-      canonical: `https://forest-survival-game.vercel.app/${locale}`,
+      canonical: `https://forestsurvival.org/${locale}`,
       languages: {
-        "zh-CN": "https://forest-survival-game.vercel.app/zh",
-        "en-US": "https://forest-survival-game.vercel.app/en",
-        "x-default": "https://forest-survival-game.vercel.app/en",
+        "zh-CN": "https://forestsurvival.org/zh",
+        "en-US": "https://forestsurvival.org/en",
+        "x-default": "https://forestsurvival.org/en",
       },
     },
   };
@@ -134,11 +134,11 @@ function getStructuredData(locale: Locale) {
       {
         "@type": "WebSite",
         name: isZh ? "森林生存" : "Forest Survival",
-        url: `https://forest-survival-game.vercel.app/${locale}`,
+        url: `https://forestsurvival.org/${locale}`,
         inLanguage: isZh ? "zh-CN" : "en-US",
         potentialAction: {
           "@type": "SearchAction",
-          target: `https://forest-survival-game.vercel.app/${locale}/?q={search_term_string}`,
+          target: `https://forestsurvival.org/${locale}/?q={search_term_string}`,
           "query-input": "required name=search_term_string",
         },
       },
@@ -148,7 +148,7 @@ function getStructuredData(locale: Locale) {
         description: isZh
           ? "一款基于网页的2D像素风生存冒险游戏，玩家需要在森林中收集资源、建造营火、生存10天。"
           : "A free browser-based survival game. Collect wood, build campfires, manage hunger and thirst to survive 10 days in the forest. No download required.",
-        url: `https://forest-survival-game.vercel.app/${locale}`,
+        url: `https://forestsurvival.org/${locale}`,
         genre: ["Survival", "Adventure", "Pixel Art"],
         gamePlatform: ["Web Browser", "PC", "Mobile Browser"],
         applicationCategory: "Game",

@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? "完整的森林生存游戏攻略：10天生存策略、资源管理技巧、新手入门指南。掌握营火建造时机和资源优先级，挑战极限生存。"
       : "Complete Forest Survival game guide: 10-day survival strategies, resource management tips, beginner walkthrough. Master campfire timing and resource priority.",
     alternates: {
-      canonical: `https://forest-survival-game.vercel.app/${locale}/how-to-play`,
+      canonical: `https://forestsurvival.org/${locale}/how-to-play`,
       languages: {
-        "zh-CN": "https://forest-survival-game.vercel.app/zh/how-to-play",
-        "en-US": "https://forest-survival-game.vercel.app/en/how-to-play",
-        "x-default": "https://forest-survival-game.vercel.app/en/how-to-play",
+        "zh-CN": "https://forestsurvival.org/zh/how-to-play",
+        "en-US": "https://forestsurvival.org/en/how-to-play",
+        "x-default": "https://forestsurvival.org/en/how-to-play",
       },
     },
   };
