@@ -159,7 +159,7 @@ export default async function DeveloperLog({ params }: Props) {
                 {i === 0 ? (
                   <>
                     {p.split("GitHub")[0]}
-                    <a href="https://github.com/ChaoticArray516" target="_blank" rel="noopener noreferrer" className="text-[#55E6C1] hover:underline">GitHub</a>
+                    <a href="https://github.com/ChaoticArray516" target="_blank" rel="author noopener noreferrer" className="text-[#55E6C1] hover:underline">GitHub</a>
                     {p.split("GitHub")[1]}
                   </>
                 ) : (

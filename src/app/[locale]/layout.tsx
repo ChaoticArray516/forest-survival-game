@@ -160,24 +160,25 @@ function getStructuredData(locale: Locale) {
           "@type": "Person",
           name: "ChaoticArray",
           url: "https://github.com/ChaoticArray516",
+          sameAs: [
+            "https://github.com/ChaoticArray516",
+            "https://github.com/ChaoticArray516/forest-survival-game",
+          ],
         },
         publisher: {
           "@type": "Person",
           name: "ChaoticArray",
           url: "https://github.com/ChaoticArray516",
+          sameAs: [
+            "https://github.com/ChaoticArray516",
+            "https://github.com/ChaoticArray516/forest-survival-game",
+          ],
         },
         offers: {
           "@type": "Offer",
           price: "0",
           priceCurrency: isZh ? "CNY" : "USD",
           availability: "https://schema.org/InStock",
-        },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.5",
-          ratingCount: "100",
-          bestRating: "5",
-          worstRating: "1",
         },
       },
     ],

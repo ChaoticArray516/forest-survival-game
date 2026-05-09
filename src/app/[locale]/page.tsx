@@ -294,7 +294,7 @@ export default async function Home({ params }: HomeProps) {
             <a
               href="https://github.com/ChaoticArray516"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="author noopener noreferrer"
               className="text-zinc-400 hover:text-white"
             >
               ChaoticArray
