@@ -1,31 +1,24 @@
 import type { MetadataRoute } from "next";
+import { locales } from "@/i18n/config";
+
+export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://forest-survival-game.vercel.app";
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/how-to-play`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/developer-log`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.3,
-    },
-  ];
+  const paths = ["", "/how-to-play", "/developer-log", "/privacy"];
+
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const locale of locales) {
+    for (const path of paths) {
+      entries.push({
+        url: `${baseUrl}/${locale}${path}`,
+        lastModified: new Date(),
+        changeFrequency: path === "" ? "weekly" : "monthly",
+        priority: path === "" ? 1.0 : 0.6,
+      });
+    }
+  }
+
+  return entries;
 }
