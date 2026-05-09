@@ -154,7 +154,14 @@ function getStructuredData(locale: Locale) {
         applicationCategory: "Game",
         operatingSystem: "Any",
         inLanguage: isZh ? "zh-CN" : "en-US",
+        datePublished: "2026-05-09",
+        image: `https://forestsurvival.org/og-image.png`,
         author: {
+          "@type": "Person",
+          name: "ChaoticArray",
+          url: "https://github.com/ChaoticArray516",
+        },
+        publisher: {
           "@type": "Person",
           name: "ChaoticArray",
           url: "https://github.com/ChaoticArray516",
