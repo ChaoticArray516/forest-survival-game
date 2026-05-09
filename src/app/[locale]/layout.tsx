@@ -123,6 +123,9 @@ export async function generateMetadata({
         "x-default": "https://forestsurvival.org/en",
       },
     },
+    verification: {
+      google: "tRXzeJmbIfHDTJPGkb0CEJFd7tjI2OWJ-Tf95x1E0JQ",
+    },
   };
 }
 
