@@ -21,7 +21,7 @@ const metadataByLocale: Record<Locale, Metadata> = {
   zh: {
     title: "森林生存：免费在线浏览器生存游戏 | Forest Survival",
     description:
-      "在广袤森林中挑战10天极限生存！免费HTML5网页游戏，无需下载。收集资源、建造营火、抵御黑夜严寒。支持PC键盘与手机触屏操作。",
+      "在广袤像素风森林挑战10天极限生存！免费HTML5网页游戏，无需下载、无需注册，打开浏览器即玩。收集木材建造营火、管理饥饿与口渴值，难度从适应期递增至第10天终极考验。支持PC键盘与移动端虚拟摇杆。",
     keywords: [
       "森林生存游戏",
       "网页生存游戏",
@@ -37,7 +37,8 @@ const metadataByLocale: Record<Locale, Metadata> = {
     robots: "index, follow",
     openGraph: {
       title: "森林生存：免费在线浏览器生存游戏",
-      description: "在广袤森林中挑战10天极限生存！免费HTML5网页游戏，无需下载。",
+      description:
+        "在像素风森林挑战10天极限生存！免费HTML5浏览器游戏，无需下载即玩。收集木材建造营火、管理饥饿口渴，难度逐日递增至终极考验。",
       url: "https://forestsurvival.org/zh",
       siteName: "森林生存",
       locale: "zh_CN",
@@ -54,7 +55,8 @@ const metadataByLocale: Record<Locale, Metadata> = {
     twitter: {
       card: "summary_large_image",
       title: "森林生存：免费在线浏览器生存游戏",
-      description: "在广袤森林中挑战10天极限生存！免费HTML5网页游戏。",
+      description:
+        "挑战10天像素风森林生存！免费HTML5浏览器游戏，打开即玩，无需下载。",
       images: ["https://forestsurvival.org/og-image.png"],
       creator: "@ChaoticArray516",
     },
@@ -159,6 +161,20 @@ function getStructuredData(locale: Locale) {
         inLanguage: isZh ? "zh-CN" : "en-US",
         datePublished: "2026-05-09",
         image: `https://forestsurvival.org/og-image.png`,
+        // TODO(B1): 等真实游戏截图就绪后,把 screenshot 数组扩展为
+        //   [
+        //     "https://forestsurvival.org/screenshots/menu.webp",
+        //     "https://forestsurvival.org/screenshots/day1-explore.webp",
+        //     "https://forestsurvival.org/screenshots/night-campfire.webp",
+        //     "https://forestsurvival.org/screenshots/day10-challenge.webp",
+        //   ]
+        // 当前用 og-image.png(品牌封面)占位,确保 Schema 完整性。
+        screenshot: ["https://forestsurvival.org/og-image.png"],
+        numberOfPlayers: {
+          "@type": "QuantitativeValue",
+          minValue: 1,
+          maxValue: 1,
+        },
         author: {
           "@type": "Person",
           name: "ChaoticArray",
