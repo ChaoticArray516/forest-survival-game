@@ -31,24 +31,24 @@ const content: Record<
 > = {
   zh: {
     h1: "森林生存 — 免费在线浏览器生存游戏",
-    tagline: "无需下载，打开即玩。在像素风森林中挑战10天极限生存！",
+    tagline: "无需下载，打开即玩。轻量级 HTML5 Canvas 像素风森林，挑战10天极限生存！",
     gameplayTitle: "游戏玩法介绍",
     features: [
       {
         title: "10天生存挑战",
-        desc: "你被遗弃在一片广袤的森林中，必须依靠收集资源、建造营火来活过10个越来越艰难的日夜。每一天的难度都会递增——资源更稀缺、黑夜更长、环境更严酷。",
+        desc: "你被遗弃在一片广袤的像素风森林中，必须依靠收集木材、苹果与水源、建造营火来活过10个越来越艰难的日夜。每一天的难度都会递增——树木与水池更稀缺、黑夜更长、环境更严酷。",
       },
       {
         title: "资源收集系统",
-        desc: "砍伐树木获得木材，采集苹果树获得食物，靠近水池获取水源。木材可用于建造营火抵御夜间严寒。合理分配资源是生存的关键。",
+        desc: "砍伐树木获得木材、采集苹果树获得食物、靠近水池补充水源。木材可用于建造营火抵御夜间严寒。合理分配木材、苹果与水源是生存的关键。",
       },
       {
         title: "昼夜循环与难度递增",
-        desc: "白天是收集资源的安全时间，黑夜温度骤降会快速消耗生命值。第6天起最大饥饿和口渴上限降低，第10天将面临终极考验。",
+        desc: "白天是收集资源的安全时间，黑夜温度骤降会快速消耗生命值，除非待在营火附近。第6天起最大饥饿和口渴上限降低，第10天将面临终极考验。",
       },
       {
         title: "生存指标管理",
-        desc: "时刻关注 HP（生命值）、饥饿值和口渴值。吃苹果恢复饥饿，喝水恢复口渴。营火提供温暖，在黑夜中至关重要。",
+        desc: "时刻关注 HP（生命值）、饥饿值和口渴值。吃苹果恢复饥饿，喝水恢复口渴。营火在约 90 像素范围内提供温暖，是黑夜生存的关键。整个游戏基于 HTML5 Canvas 构建，浏览器打开即玩，无需任何安装。",
       },
     ],
     controlsTitle: "操作指南",
@@ -94,24 +94,24 @@ const content: Record<
   en: {
     h1: "Forest Survival Game — Survive 10 Days in the Wild",
     tagline:
-      "No download. No login. Play instantly in your browser. A pixel-art survival challenge!",
+      "No download. No login. Play instantly in your browser. A lightweight HTML5 Canvas pixel-art survival challenge!",
     gameplayTitle: "How to Play",
     features: [
       {
         title: "10-Day Survival Challenge",
-        desc: "Stranded in a vast forest, you must gather resources and build campfires to survive 10 increasingly brutal days. Each day gets harder — resources become scarcer, nights grow longer, and the environment turns deadlier.",
+        desc: "Stranded in a vast pixel forest, you must gather resources and build campfires to survive 10 increasingly brutal days. Each day gets harder — wood, apple trees, and water pools become scarcer, nights grow longer, and the environment turns deadlier.",
       },
       {
         title: "Resource Gathering System",
-        desc: "Chop trees for wood, harvest apple trees for food, and collect water from pools. Wood is essential for building campfires to survive the freezing nights. Smart resource management is the key to staying alive.",
+        desc: "Chop trees for wood, harvest apple trees for food, and collect water from scattered water pools. Wood is essential for building campfires to survive freezing nights. Smart resource management — balancing wood, apples, and water — is the key to staying alive.",
       },
       {
         title: "Day/Night Cycle & Difficulty Scaling",
-        desc: "Daytime is safe for gathering resources. But when night falls, temperatures drop rapidly and drain your HP. From Day 6, max hunger and thirst caps decrease. Day 10 is the ultimate test of survival.",
+        desc: "Daytime is safe for gathering resources. But when night falls, temperatures drop rapidly and the cold drains your HP unless you stay near a campfire. From Day 6, max hunger and thirst caps decrease. Day 10 is the ultimate survival test.",
       },
       {
         title: "Survival Stats Management",
-        desc: "Keep a close eye on your HP, hunger, and thirst. Eat apples to restore hunger, drink water to quench thirst. Campfires provide warmth — absolutely critical during freezing nights.",
+        desc: "Keep a close eye on your HP, hunger, and thirst stats. Eat apples to restore hunger, drink water to quench thirst. Campfires provide warmth within a ~90-pixel radius — absolutely critical during freezing nights. Built with HTML5 Canvas for instant browser play, no installation required.",
       },
     ],
     controlsTitle: "Controls",
