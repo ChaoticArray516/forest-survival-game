@@ -285,9 +285,12 @@ export default function GameCanvas({ locale }: { locale: string }) {
       {gameScreen === 'menu' && (
         <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-2 drop-shadow-lg">
+            <div
+              role="presentation"
+              className="text-4xl md:text-6xl font-bold text-white mb-2 drop-shadow-lg"
+            >
               {t.menuTitle}
-            </h1>
+            </div>
             <p className="text-lg md:text-xl text-[#DFE6E9] mb-8 drop-shadow">
               {t.menuSubtitle}
             </p>
